@@ -1,0 +1,853 @@
+Unit (Neurons)
+
+A unit often refers to the activation 
+function in a layer by which the 
+inputs are transformed via a 
+nonlinear activation function (for 
+example by the logistic sigmoid 
+function). Usually, a unit has 
+several incoming connections and 
+several outgoing connections.
+
+Input Layer
+
+Comprised of multiple Real-Valued inputs. Each input 
+must be linearly independent from each other.
+
+Hidden Layers
+
+Layers other than the input and 
+output layers. A layer is the 
+highest-level building block in 
+deep learning. A layer is a 
+container that usually receives 
+weighted input, transforms it with 
+a set of mostly non-linear 
+functions and then passes these 
+values as output to the next 
+layer.
+
+Deﬁnes the output of that node given an input 
+or set of inputs.
+
+ReLU
+
+Sigmoid / Logistic
+
+Binary
+
+Tanh
+
+Softplus
+
+Softmax
+
+Maxout
+
+Activation Functions
+
+Types
+
+Batch Normalization
+
+Using mini-batches of examples, as opposed to one example at a time, is helpful in 
+several ways. First, the gradient of the loss over a mini-batch is an estimate of the 
+gradient over the training set, whose quality improves as the batch size increases. 
+Second, computation over a batch can be much more eﬃcient than m computations for 
+individual examples, due to the parallelism aﬀorded by the modern computing platforms.
+
+With SGD, the training proceeds in steps, and 
+at each step we consider a mini- batch x1...m 
+of size m. The mini-batch is used to approx- 
+imate the gradient of the loss function with 
+respect to the parameters.
+
+Many cost functions are the result of applying Maximum Likelihood. For instance, the Least Squares 
+cost function can be obtained via Maximum Likelihood. Cross-Entropy is another example.
+The likelihood of a parameter value (or vector of parameter values), θ, 
+given outcomes x, is equal to the probability (density) assumed for those 
+observed outcomes given those parameter values, that is
+The natural logarithm of the likelihood function, called the log-likelihood, is more convenient to work with. Because the 
+logarithm is a monotonically increasing function, the logarithm of a function achieves its maximum value at the same 
+points as the function itself, and hence the log-likelihood can be used in place of the likelihood in maximum likelihood 
+estimation and related techniques.
+
+Leaky ReLU, PReLU, RReLU, ELU, SELU, and others.
+
+Neural Network taking 4 dimension vector 
+representation of words.
+
+Is a method used in artiﬁcial neural networks to 
+calculate the error contribution of each neuron 
+after a batch of data. It calculates the gradient 
+of the loss function. It is commonly used in the 
+gradient descent optimization algorithm. It is 
+also called backward propagation of errors, 
+because the error is calculated at the output 
+and distributed back through the network 
+layers.
+
+In this method, we reuse partial derivatives 
+computed for higher layers in lower layers, for 
+eﬃciency. 
+
+Maximum 
+Likelihood 
+Estimation (MLE)
+
+In general, for a ﬁxed set of data and underlying 
+statistical model, the method of maximum likelihood 
+selects the set of values of the model parameters that 
+maximizes the likelihood function. Intuitively, this 
+maximizes the "agreement" of the selected model with 
+the observed data, and for discrete random variables it 
+indeed maximizes the probability of the observed data 
+under the resulting distribution. Maximum-likelihood 
+estimation gives a uniﬁed approach to estimation, 
+which is well-deﬁned in the case of the normal 
+distribution and many other problems.
+
+Backpropagation
+
+Cross-Entropy
+
+Cross entropy can be used to deﬁne the loss 
+function in machine learning and optimization. 
+The true probability pi is the true label, and 
+the given distribution qi  is the predicted value 
+of the current model.
+
+Cross-entropy error function and logistic regression
+
+Another Example (Circuits)
+
+Simple Example (Circuits)
+
+Intuition for backpropagation
+
+Concepts
+
+Simple Example (Flowgraphs)
+
+However, if you actually try that, the weights 
+will change far too much each iteration, which 
+will make them “overcorrect” and the loss will 
+actually increase/diverge. So in practice, 
+people usually multiply each derivative by a 
+small value called the “learning rate” before 
+they subtract it from its corresponding weight.
+
+Neural networks are often trained by gradient 
+descent on the weights. This means at each 
+iteration we use backpropagation to calculate 
+the derivative of the loss function with respect 
+to each weight and subtract it from that 
+weight. 
+
+Cost/Loss(Min) 
+Objective(Max) 
+Functions
+
+Logistic
+
+The logistic loss function is deﬁned as:
+
+The use of a quadratic loss function is common, for example when 
+using least squares techniques. It is often more mathematically 
+tractable than other loss functions because of the properties of 
+variances, as well as being symmetric: an error above the target 
+causes the same loss as the same magnitude of error below the target. 
+If the target is t, then a quadratic loss function is:
+
+In statistics and decision theory, a frequently 
+used loss function is the 0-1 loss function
+
+The hinge loss is a loss function used for 
+training classiﬁers. For an intended output t = 
+±1 and a classiﬁer score y, the hinge loss of 
+the prediction y is deﬁned as:
+
+Quadratic
+
+0-1 Loss
+
+Hinge Loss
+
+Exponential
+
+Simplest recipe: keep it ﬁxed and use the 
+same for all parameters.
+
+Learning Rate
+
+Hellinger Distance
+
+It is used to quantify the similarity between 
+two probability distributions. It is a type of f-
+divergence.
+
+Reduce by 0.5 when validation error stops improving
+Reduction by O(1/t) because of theoretical 
+convergence guarantees, with hyper-
+parameters ε0 and τ and t is iteration 
+numbers.
+
+Better yet: No hand-set learning of rates by using AdaGrad
+
+Better results by allowing learning rates to decrease Options:
+
+Is a ﬁrst-order iterative optimization algorithm for ﬁnding the minimum of a function. To ﬁnd a 
+local minimum of a function using gradient descent, one takes steps proportional to the 
+negative of the gradient (or of the approximate gradient) of the function at the current point. If 
+instead one takes steps proportional to the positive of the gradient, one approaches a local 
+maximum of that function; the procedure is then known as gradient ascent.
+Gradient descent uses total gradient over all 
+examples per update, SGD updates after only 
+1 or few examples:
+
+Stochastic Gradient Descent (SGD)
+
+Tricks
+
+Gradient Descent
+
+Gradient descent uses total gradient over all 
+examples per update, SGD updates after only 
+1 example
+
+Mini-batch Stochastic Gradient Descent 
+(SGD)
+
+Optimization
+
+Idea: Add a fraction v of previous update to 
+current one. When the gradient keeps pointing 
+in the same direction, this will
+increase the size of the steps taken towards 
+the minimum.
+
+Momentum
+
+Adaptive learning rates for each parameter
+
+Adagrad
+
+But, this turns out to be a mistake, because if 
+every neuron in the network computes the 
+same output, then they will also all compute 
+the same gradients during back-propagation 
+and undergo the exact same parameter 
+updates. In other words, there is no source of 
+asymmetry between neurons if their weights 
+are initialized to be the same.
+
+In the ideal situation, with proper data 
+normalization it is reasonable to assume that 
+approximately half of the weights will be 
+positive and half of them will be negative. A 
+reasonable-sounding idea then might be to 
+set all the initial weights to zero, which you 
+expect to be the “best guess” in expectation. 
+
+All Zero Initialization
+
+The implementation for weights might simply 
+drawing values from a normal distribution with 
+zero mean, and unit standard deviation. It is 
+also possible to use small numbers drawn 
+from a uniform distribution, but this seems to 
+have relatively little impact on the ﬁnal 
+performance in practice.
+
+Thus, you still want the weights to be very 
+close to zero, but not identically zero. In this 
+way, you can random these neurons to small 
+numbers which are very close to zero, and it is 
+treated as symmetry breaking. The idea is that 
+the neurons are all random and unique in the 
+beginning, so they will compute distinct 
+updates and integrate themselves as diverse 
+parts of the full network.
+
+Initialization with Small Random Numbers
+
+Weight Initialization
+
+Regularization
+
+This ensures that all neurons in the network 
+initially have approximately the same output 
+distribution and empirically improves the rate 
+of convergence. The detailed derivations can 
+be found from Page. 18 to 23 of the slides. 
+Please note that, in the derivations, it does 
+not consider the inﬂuence of ReLU neurons.
+
+One problem with the above suggestion is 
+that the distribution of the outputs from a 
+randomly initialized neuron has a variance that 
+grows with the number of inputs. It turns out 
+that you can normalize the variance of each 
+neuron's output to 1 by scaling its weight 
+vector by the square root of its fan-in (i.e., its 
+number of inputs)
+
+Calibrating the Variances
+
+To deﬁne the Hellinger distance in terms of 
+measure theory, let P and Q denote two 
+probability measures that are absolutely 
+
+continuous with respect to a third probability 
+
+quantity
+
+measure λ. The square of the Hellinger 
+
+distance between P and Q is deﬁned as the 
+
+Kullback-Leibler Divengence
+
+Itakura–Saito distance
+
+Is a measure of how one probability 
+distribution diverges from a second expected 
+probability distribution. Applications include 
+characterizing the relative (Shannon) entropy 
+in information systems, randomness in 
+continuous time-series, and information gain 
+when comparing statistical models of 
+inference.
+
+is a measure of the diﬀerence between an 
+original spectrum P(ω) and an approximation
+P^(ω) of that spectrum. Although it is not a 
+perceptual measure, it is intended to reﬂect 
+perceptual (dis)similarity.
+
+Discrete
+
+Continuous
+
+https://stats.stackexchange.com/questions/154879/a-list-of-cost-functions-used-in-neural-networks-alongside-applications
+https://en.wikipedia.org/wiki/Loss_functions_for_classiﬁcation
+
+L1 norm
+
+Manhattan Distance
+
+L2 norm
+
+Euclidean Distance
+
+L1-norm is also known as least absolute 
+deviations (LAD), least absolute errors (LAE). It 
+is basically minimizing the sum of the 
+absolute diﬀerences (S) between the target 
+value and the estimated values.
+L2-norm is also known as least squares. It is 
+basically minimizing the sum of the square of 
+the diﬀerences (S) between the target value 
+and the estimated values:
+
+Early Stopping 
+
+Early stopping rules provide guidance as to how many iterations can be 
+run before the learner begins to over-ﬁt, and stop the algorithm then.
+
+Dropout
+
+Is a regularization technique for reducing overﬁtting in neural networks by preventing 
+complex co-adaptations on training data. It is a very eﬃcient way of performing model 
+averaging with neural networks. The term "dropout" refers to dropping out units (both 
+hidden and visible) in a neural network
+
+Sparse regularizer on columns
+
+Nuclear norm regularization
+
+Mean-constrained regularization
+
+This regularizer deﬁnes an L2 norm on each 
+column and an L1 norm over all columns. It 
+can be solved by proximal methods.
+
+This regularizer constrains the functions learned for each task to be similar to 
+the overall average of the functions across all tasks. This is useful for 
+expressing prior information that each task is expected to share similarities 
+with each other task. An example is predicting blood iron levels measured at 
+diﬀerent times of the day, where each task represents a diﬀerent person.
+
+This regularizer is similar to the mean-
+constrained regularizer, but instead enforces 
+similarity between tasks within the same 
+cluster. This can capture more complex prior 
+information. This technique has been used to 
+predict Netﬂix recommendations.
+
+Clustered mean-constrained regularization
+
+Graph-based similarity
+
+More general than above, similarity between 
+tasks can be deﬁned by a function. The 
+regularizer encourages the model to learn 
+similar functions for similar tasks.
+
+Is an artiﬁcial neural network wherein connections between the units do not form a 
+cycle. In this network, the information moves in only one direction, forward, from the 
+input nodes, through the hidden nodes (if any) and to the output nodes. There are no 
+cycles or loops in the network.
+The inputs are fed directly to the outputs via a 
+series of weights. By adding an Logistic 
+activation function to the outputs, the model 
+is identical to a classical Logistic Regression 
+model.
+This class of networks consists of multiple 
+layers of computational units, usually 
+interconnected in a feed-forward way. Each 
+neuron in one layer has directed connections 
+to the neurons of the subsequent layer. In 
+many applications the units of these networks 
+apply a sigmoid function as an activation 
+function.
+
+Single-Layer Perceptron
+
+Kinds
+
+Multi-Layer Perceptron
+
+Feed Forward
+
+LSTMs
+
+GANs
+
+Long short-term memory - It is a type of recurrent (RNN), allowing 
+data to ﬂow both forwards and backwards within the network.
+
+GANs or Generative 
+Adversarial Networks are a 
+class of artiﬁcial intelligence 
+algorithms used in 
+unsupervised machine 
+learning, implemented by a 
+system of two neural networks 
+contesting with each other in a 
+zero-sum game framework.
+
+An LSTM is well-suited to learn from 
+experience to classify, process and predict 
+time series given time lags of unknown size 
+and bound between important events. 
+Relative insensitivity to gap length gives an 
+advantage to LSTM over alternative RNNs, 
+hidden Markov models and other sequence 
+learning methods in numerous applications.
+
+The aim of an autoencoder 
+is to learn a representation 
+(encoding) for a set of data, 
+typically for the purpose of 
+dimensionality reduction. 
+Recently, the autoencoder 
+concept has become more 
+widely used for learning 
+generative models of data.
+
+Pooling
+Convolution
+Subsampling
+
+Auto-Encoders
+
+Architectures
+
+Strategy
+
+Is an artiﬁcial neural network used for unsupervised 
+learning of eﬃcient codings.
+
+They have applications in image and video 
+recognition, recommender systems and 
+natural language processing.
+
+Convolutional Neural Networks (CNN)
+
+Is a class of artiﬁcial neural network where connections between units form a 
+directed cycle. This allows it to exhibit dynamic temporal behavior. Unlike 
+feedforward neural networks, RNNs can use their internal memory to process 
+arbitrary sequences of inputs. 
+
+This makes them applicable to tasks such as 
+unsegmented, connected handwriting recognition or 
+speech recognition.
+
+RNNs (Recurrent)
+
+Is a kind of deep neural 
+network created by applying 
+the same set of weights 
+recursively over a structure, to 
+produce a structured prediction 
+over variable-size input 
+structures, or a scalar 
+prediction on it, by traversing a 
+given structure in topological 
+order.
+
+RNNs (Recursive)
+
+RNNs have been successful for instance in 
+learning sequence and tree structures in 
+natural language processing, mainly phrase 
+and sentence continuous representations 
+based on word embedding.
+
+1. Select Network Structure appropriate for 
+problem
+
+Structure: Single words, ﬁxed windows, 
+sentence based, document level; bag of 
+words, recursive vs. recurrent, CNN
+Nonlinearity (Activation Functions)
+
+1. Implement your gradient
+2. Implement a ﬁnite diﬀerence computation 
+by looping through the parameters of your 
+network, adding and subtracting a small 
+epsilon ((cid:42246)10-4) and estimate derivatives
+3. Compare the two and make sure they are 
+almost the same
+
+2. Check for implementation bugs with 
+gradient checks
+
+If you gradient fails and you don’t know why?
+
+Using Gradient Checks
+
+Example: Start from simplest model then go 
+to what you want:
+
+Simplify your model until you have no bug!
+What now? Create a very tiny synthetic model 
+and dataset
+Only softmax on ﬁxed input
+Backprop into word vectors and softmax
+Add single unit single hidden layer
+Add multi unit single layer
+Add second layer single unit, add multiple 
+units, bias • Add one softmax on top, then 
+two softmax layers
+Add bias
+
+3. Parameter initialization
+
+Initialize hidden layer biases to 0 and output 
+(or reconstruction) biases to optimal value if 
+weights were 0 (e.g., mean target or inverse 
+sigmoid of mean target).
+Initialize weights (cid:42246) Uniform(−r, r), r inversely 
+proportional to fan-in (previous layer size) and 
+fan-out (next layer size):
+
+Gradient Descent
+
+Is a ﬁrst-order iterative optimization algorithm for ﬁnding the minimum of a function. To ﬁnd a 
+local minimum of a function using gradient descent, one takes steps proportional to the 
+negative of the gradient (or of the approximate gradient) of the function at the current point. If 
+instead one takes steps proportional to the positive of the gradient, one approaches a local 
+maximum of that function; the procedure is then known as gradient ascent.
+
+Stochastic Gradient Descent (SGD)
+
+Gradient descent uses total gradient over all 
+examples per update, SGD updates after only 
+1 or few examples:
+Ordinary gradient descent as a batch method 
+is very slow, should never be used. Use 2nd 
+order batch method such as L-BFGS.
+On large datasets, SGD usually wins over all 
+batch methods. On smaller datasets L-BFGS 
+or Conjugate Gradients win. Large-batch L-
+BFGS extends the reach of L-BFGS [Le et al. 
+ICML 2011].
+
+Gradient descent uses total gradient over all 
+examples per update, SGD updates after only 
+1 example
+
+4. Optimization
+
+Mini-batch Stochastic Gradient Descent 
+(SGD)
+
+Most commonly used now, Size of each mini 
+batch B: 20 to 1000
+
+Helps parallelizing any model by computing 
+gradients for multiple elements of the batch in 
+parallel
+
+Idea: Add a fraction v of previous update to 
+current one. When the gradient keeps pointing 
+in the same direction, this will
+increase the size of the steps taken towards 
+the minimum.
+Reduce global learning rate when using a lot 
+of momentum
+
+Update Rule
+
+Adaptive learning rates for each parameter!
+
+Learning rate is adapting diﬀerently for each 
+parameter and rare parameters get larger 
+updates than frequently occurring parameters. 
+Word vectors!
+
+Momentum
+
+Adagrad
+
+If not, change model structure or make model “larger”
+
+v is initialized at 0
+Momentum often increased after some 
+epochs (0.5 à 0.99)
+
+5. Check if the model is powerful enough to 
+overﬁt
+
+If you can overﬁt: Regularize to prevent 
+overﬁtting:
+
+Simple ﬁrst step: Reduce model size by 
+lowering number of units and layers and other 
+parameters
+Standard L1 or L2 regularization on weights
+Early Stopping: Use parameters that gave 
+best validation error
+Sparsity constraints on hidden activations, 
+e.g., add to cost:
+
+Dropout
+
+Training time: at each instance of evaluation 
+(in online SGD-training), randomly set 50% of 
+the inputs to each neuron to 0
+Test time: halve the model weights (now twice 
+as many) This prevents feature co-adaptation: 
+A feature cannot only be useful in the 
+presence of particular other features
+In a single layer: A kind of middle-ground 
+between Naïve Bayes (where all feature 
+weights are set independently) and logistic 
+regression models (where weights are set in 
+the context of all others)
+Can be thought of as a form of model bagging
+It also acts as a strong regularizer
+
+TensorFlow is a deep learning library recently open-sourced by 
+Google. It provides primitives for deﬁning functions on tensors and 
+automatically computing their derivatives, expressed as a graph.
+
+The Tensorﬂow Graph is build to contain all placeholders for X and y, 
+all variables for W’s and b’s, all mathematical operations, the cost 
+function, and the optimisation procedure. Then, at runtime, the values 
+for the data are fed into that Graph, by placing the data batches in 
+the placeholders and running the Graph.
+
+Intuition
+
+Each node in the Graph can then be connected to each other node 
+over the network, and thus running Tensorﬂow models can be 
+parallelised.
+
+TensorFlow has some neat built-in visualization tools (TensorBoard).
+
+Tensorboard
+
+Assembles a computational graph
+The computation graph has no numerical 
+value until evaluated. 
+
+All computations add nodes to global default graph
+
+A Session object encapsulates the environment 
+in which Tensor objects are evaluated
+
+Uses a session to execute ops in the graph
+Declared variables must be initialised before 
+they have values.
+
+1. Construction
+
+2. Execution
+
+Phases
+
+When you train a model you use variables to hold and update 
+parameters. Variables are in-memory buﬀers containing tensors.
+
+Stateful nodes that output their current value, 
+their state is retained across multiple 
+executions of the graph.
+Mostly Parameters we’re interested in tuning, 
+such as Weights (W) and Biases (b).
+
+Variables can be shared by Explicitly passing 
+tf.Variable objects around, or...
+
+Scopes
+
+Implicitly wrapping tf.Variable objects within 
+tf.variable_scope objects.
+
+Variables
+
+Sharing
+
+tf.variable_scope()
+
+Provides simple name spacing to avoid cases 
+
+when querying
+
+Creates/Access variables from a variable 
+scope
+
+tf.get_variable()
+
+Nodes whose value is fed at execution time.
+Inputs, Features (X) and Labels (y)
+
+MatMul, Add, ReLU, etc.
+
+They are Operations, containing any number 
+of inputs and outputs.
+
+Nodes
+
+The tensors that ﬂow between the nodes.
+It a binding to a particular execution context: CPU, GPU.
+
+Edges
+
+Placeholders
+
+Mathematical 
+Operations
+
+Graph
+
+List of graph nodes. Returns the output of 
+these nodes.
+
+Dictionary mapping from graph nodes to 
+concrete values.
+
+Speciﬁed the value of each graph node given 
+in the dictionary.
+
+Fetches
+
+Feeds
+
+Inputs
+
+Running a Session
+
+Session
+
+Comparison to Numpy
+
+Does lazy evaluation. Need to build the 
+graph, and then run it in a session.
+
+1. Create the Model
+
+2. Deﬁne Target
+
+tf
+
+Main Steps
+
+3. Deﬁne Loss function and Optimizer
+
+4. Deﬁne the Session and Initialise Variables
+
+5. Train the Model
+
+6. Test Trained Model
+
+TensorFlow’s high-level machine learning API 
+(tf.estimator) makes it easy to conﬁgure, train, and 
+evaluate a variety of machine learning models.
+
+tf.estimator.LinearClassiﬁer: Constructs a linear classiﬁcation model.
+tf.estimator.LinearRegressor: Constructs a linear regression model.
+tf.estimator.DNNClassiﬁer: Construct a neural network classiﬁcation model.
+tf.estimator.DNNRegressor: Construct a neural network regression model.
+tf.estimator.DNNLinearCombinedClassiﬁer: Construct a neural network and linear combined classiﬁcation model.
+tf.estimator.DNNRegressor: Construct a neural network and linear combined regression model.
+
+Tensorﬂow
+
+Main Components
+
+Packages
+
+tf.estimator
+
+1. Deﬁne Feature Columns 
+
+FeatureColumns are the primary way of 
+encoding features for pre-canned tf.learn 
+Estimators.
+
+When using FeatureColumns with tf.learn 
+models, the type of feature column you 
+should choose depends on the feature type 
+and  the model type.
+
+Categorical
+
+Continuous Features
+
+Categorical Features
+
+Numerical
+
+Can be represented by real_valued_column
+Can be represented by any 
+sparse_column_with_* column 
+(sparse_column_with_keys, 
+sparse_column_with_vocabulary_ﬁle, 
+sparse_column_with_hash_bucket, 
+sparse_column_with_integerized_feature
+
+2. Deﬁne your Layers, or use a prebuilt model
+
+Main Steps
+
+Using a pre-built Logistic Regression 
+Classiﬁer
+
+3. Write the input_fn function
+
+4. Train the model
+
+5. Predict and Evaluate
+
+This function holds the actual data (features 
+and labels). Features is a python dictionary.
+
+Using the ﬁt function, on the input_fn. Notice 
+that the feature columns are fed to the model 
+as arguments.
+
+Using the eval_input_fn deﬁned previously.
+
