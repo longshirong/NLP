@@ -1,0 +1,2 @@
+model_checkpoint_path: "msr_fcn"
+all_model_checkpoint_paths: "msr_fcn"
